@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/lytCons"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background">
+
+    <EditText
+            android:id="@+id/txtCityName"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#FFF"
+            android:hint="Şehir adı"
+            android:paddingLeft="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.53"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <ImageView
+            android:id="@+id/btnSearch"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/ic_search"
+            app:layout_constraintEnd_toEndOf="@+id/txtCityName"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+            android:id="@+id/txtCurrentCityName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="#FFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/txtCityName"
+            app:layout_constraintStart_toStartOf="@+id/txtCityName"
+            app:layout_constraintTop_toBottomOf="@+id/txtCityName"
+            tools:text="Şehir Adı"/>
+
+    <TextView
+            android:id="@+id/txtCurrentTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFF"
+            android:textSize="64sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCurrentCityName"
+            tools:text="derece"/>
+
+    <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/txtCurrentTemp"
+            app:layout_constraintStart_toStartOf="@+id/txtCurrentTemp"
+            app:layout_constraintTop_toBottomOf="@+id/txtCurrentTemp">
+
+        <ImageView
+                android:id="@+id/imgCurrentIcon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+
+        <TextView
+                android:id="@+id/txtCurrentState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:textColor="#FFF"
+                android:textSize="20sp"
+                tools:text="parçalı bulutlu"/>
+    </LinearLayout>
+
+    <TextView
+            android:id="@+id/txtHumidity"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="#61FFFFFF"
+            android:gravity="center"
+            android:padding="8dp"
+            android:textColor="#FFF"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            tools:text="16%"/>
+
+    <TextView
+            android:id="@+id/txtMinMaks"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="#61FFFFFF"
+            android:gravity="center"
+            android:padding="8dp"
+            android:textColor="#FFF"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@+id/txtHumidity"
+            app:layout_constraintStart_toStartOf="@+id/txtHumidity"
+            app:layout_constraintTop_toBottomOf="@+id/txtHumidity"
+            tools:text="24/32"/>
+
+    <TextView
+            android:id="@+id/txtWind"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="#61FFFFFF"
+            android:gravity="center"
+            android:padding="8dp"
+            android:textColor="#FFF"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@+id/txtMinMaks"
+            app:layout_constraintStart_toStartOf="@+id/txtMinMaks"
+            app:layout_constraintTop_toBottomOf="@+id/txtMinMaks"
+            tools:text="3.1 km/s"/>
+
+    <TextView
+            android:id="@+id/txtCurrentLastTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="#000"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/recycler_future_weather"
+            app:layout_constraintEnd_toStartOf="@+id/btnRefresh"
+            tools:text="son kontrol"/>
+
+    <ImageView
+            android:id="@+id/btnRefresh"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/ic_refresh"
+            app:layout_constraintBottom_toTopOf="@+id/recycler_future_weather"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_future_weather"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
